@@ -4,12 +4,14 @@ import {CharacterContext} from '../../contexts/character';
 import CharacterCard from '../character-card';
 import Pagination from '../_root/pagination';
 import styles from './styles';
+import Loading from '../_root/loading';
 export default function ChacterCardList() {
-  const {characters, info, setPage} = useContext(CharacterContext);
+  const {characters, info, setPage, charactersLoading} =
+    useContext(CharacterContext);
   const characterCards = characters?.map((character, index) => (
     <CharacterCard character={character} key={index} />
   ));
-  console.log(info);
+
   const nextAction = () => {
     //@ts-ignore
     setPage(info?.next);
@@ -19,6 +21,8 @@ export default function ChacterCardList() {
     //@ts-ignore
     setPage(info?.prev);
   };
+
+  if (charactersLoading) return <Loading />;
 
   return (
     <ScrollView style={styles.container}>
