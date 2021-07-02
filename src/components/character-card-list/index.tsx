@@ -10,11 +10,21 @@ export default function ChacterCardList() {
     <CharacterCard character={character} key={index} />
   ));
   console.log(info);
+  const nextAction = () => {
+    //@ts-ignore
+    setPage(info?.next);
+  };
+
+  const prevAction = () => {
+    //@ts-ignore
+    setPage(info?.prev);
+  };
+
   return (
     <ScrollView style={styles.container}>
       {characterCards}
 
-      <Pagination info={info} />
+      <Pagination info={info} nextAction={nextAction} prevAction={prevAction} />
     </ScrollView>
   );
 }

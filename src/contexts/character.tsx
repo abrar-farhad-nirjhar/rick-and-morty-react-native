@@ -24,6 +24,11 @@ export function CharactersProvider({children}: Props) {
       filter: {},
     },
   });
+
+  //   useEffect(() => {
+  //     console.log(charactersData);
+  //   }, [charactersData]);
+
   return (
     <CharacterContext.Provider
       value={{

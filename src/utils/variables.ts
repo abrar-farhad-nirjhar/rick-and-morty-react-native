@@ -3,6 +3,7 @@ const variables = {
   borderColor: 'gainsboro',
   imageHeight: 250,
   scrollViewHeight: 650,
+  buttonColor: 'black',
 };
 
 export default variables;
