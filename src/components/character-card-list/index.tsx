@@ -5,9 +5,18 @@ import CharacterCard from '../character-card';
 import Pagination from '../_root/pagination';
 import styles from './styles';
 import Loading from '../_root/loading';
+import Filter from '../_root/filter';
 export default function ChacterCardList() {
-  const {characters, info, setPage, charactersLoading} =
-    useContext(CharacterContext);
+  const {
+    characters,
+    info,
+    setPage,
+    charactersLoading,
+    name,
+    setName,
+    type,
+    setType,
+  } = useContext(CharacterContext);
   const characterCards = characters?.map((character, index) => (
     <CharacterCard character={character} key={index} />
   ));
@@ -22,13 +31,26 @@ export default function ChacterCardList() {
     setPage(info?.prev);
   };
 
-  if (charactersLoading) return <Loading />;
-
   return (
-    <ScrollView style={styles.container}>
-      {characterCards}
+    <View>
+      <Filter>
+        <>
+          <Filter.NameFilter name={name} setName={setName} />
+          <Filter.TypeFilter type={type} setType={setType} />
+        </>
+      </Filter>
+      {charactersLoading && <Loading />}
+      {!charactersLoading && (
+        <ScrollView style={styles.container}>
+          {characterCards}
 
-      <Pagination info={info} nextAction={nextAction} prevAction={prevAction} />
-    </ScrollView>
+          <Pagination
+            info={info}
+            nextAction={nextAction}
+            prevAction={prevAction}
+          />
+        </ScrollView>
+      )}
+    </View>
   );
 }

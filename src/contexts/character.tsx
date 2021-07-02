@@ -6,6 +6,10 @@ export const CharacterContext = createContext({
   info: null,
   setPage: (value: any) => {},
   charactersLoading: false,
+  name: '',
+  setName: (value: any) => {},
+  type: '',
+  setType: (value: any) => {},
 });
 
 interface Props {
@@ -14,6 +18,8 @@ interface Props {
 
 export function CharactersProvider({children}: Props) {
   const [page, setPage] = useState<number>(1);
+  const [name, setName] = useState<string>('');
+  const [type, setType] = useState<string>('');
   const {
     data: charactersData,
     error: charactersError,
@@ -21,13 +27,12 @@ export function CharactersProvider({children}: Props) {
   } = useQuery(CHARACTERS, {
     variables: {
       page,
-      filter: {},
+      filter: {
+        name,
+        type,
+      },
     },
   });
-
-  //   useEffect(() => {
-  //     console.log(charactersData);
-  //   }, [charactersData]);
 
   return (
     <CharacterContext.Provider
@@ -36,6 +41,10 @@ export function CharactersProvider({children}: Props) {
         info: charactersData?.characters.info,
         setPage,
         charactersLoading,
+        name,
+        setName,
+        type,
+        setType,
       }}>
       {children}
     </CharacterContext.Provider>
