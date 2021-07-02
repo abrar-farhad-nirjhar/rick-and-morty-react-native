@@ -1,14 +1,10 @@
-import {useQuery} from '@apollo/client';
 import React from 'react';
 import {View, Text} from 'react-native';
-import {CHARACTERS} from '../../api/query/characters-query';
+import Characters from '../characters';
 export default function MainApp() {
-  const {data, loading, error} = useQuery(CHARACTERS);
-  console.log(data);
-  console.log('dev');
   return (
     <View>
-      <Text>Hello world</Text>
+      <Characters />
     </View>
   );
 }
