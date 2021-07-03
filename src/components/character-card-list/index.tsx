@@ -16,6 +16,12 @@ export default function ChacterCardList() {
     setName,
     type,
     setType,
+    gender,
+    setGender,
+    status,
+    setStatus,
+    species,
+    setSpecies,
   } = useContext(CharacterContext);
   const characterCards = characters?.map((character, index) => (
     <CharacterCard character={character} key={index} />
@@ -37,6 +43,9 @@ export default function ChacterCardList() {
         <>
           <Filter.NameFilter name={name} setName={setName} />
           <Filter.TypeFilter type={type} setType={setType} />
+          <Filter.SpeciesFilter species={species} setSpecies={setSpecies} />
+          <Filter.GenderFilter gender={gender} setGender={setGender} />
+          <Filter.StatusFilter status={status} setStatus={setStatus} />
         </>
       </Filter>
       {charactersLoading && <Loading />}

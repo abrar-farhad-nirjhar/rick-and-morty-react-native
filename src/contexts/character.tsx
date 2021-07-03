@@ -10,6 +10,12 @@ export const CharacterContext = createContext({
   setName: (value: any) => {},
   type: '',
   setType: (value: any) => {},
+  gender: '',
+  setGender: (value: any) => {},
+  status: '',
+  setStatus: (value: any) => {},
+  species: '',
+  setSpecies: (value: any) => {},
 });
 
 interface Props {
@@ -20,6 +26,9 @@ export function CharactersProvider({children}: Props) {
   const [page, setPage] = useState<number>(1);
   const [name, setName] = useState<string>('');
   const [type, setType] = useState<string>('');
+  const [gender, setGender] = useState<string>('');
+  const [status, setStatus] = useState<string>('');
+  const [species, setSpecies] = useState<string>('');
   const {
     data: charactersData,
     error: charactersError,
@@ -30,6 +39,9 @@ export function CharactersProvider({children}: Props) {
       filter: {
         name,
         type,
+        gender,
+        status,
+        species,
       },
     },
   });
@@ -45,6 +57,12 @@ export function CharactersProvider({children}: Props) {
         setName,
         type,
         setType,
+        gender,
+        setGender,
+        status,
+        setStatus,
+        species,
+        setSpecies,
       }}>
       {children}
     </CharacterContext.Provider>
