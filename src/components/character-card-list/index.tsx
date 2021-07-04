@@ -1,12 +1,20 @@
 import React, {useContext} from 'react';
-import {ScrollView, Text, View} from 'react-native';
+import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import {CharacterContext} from '../../contexts/character';
 import CharacterCard from '../character-card';
 import Pagination from '../_root/pagination';
 import styles from './styles';
 import Loading from '../_root/loading';
 import Filter from '../_root/filter';
-export default function ChacterCardList() {
+import StackNavigator from '../_root/stack-navigation';
+import CharacterDetails from '../../screens/character-details';
+import {createStackNavigator} from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+interface Props {
+  navigation: any;
+}
+export default function ChacterCardList({navigation}: Props) {
   const {
     characters,
     info,
@@ -24,7 +32,9 @@ export default function ChacterCardList() {
     setSpecies,
   } = useContext(CharacterContext);
   const characterCards = characters?.map((character, index) => (
-    <CharacterCard character={character} key={index} />
+    <TouchableOpacity onPress={() => navigation.navigate('Details')}>
+      <CharacterCard character={character} key={index} />
+    </TouchableOpacity>
   ));
 
   const nextAction = () => {
