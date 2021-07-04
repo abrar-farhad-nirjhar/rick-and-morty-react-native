@@ -6,7 +6,7 @@ import Filter from '../_root/filter';
 import Loading from '../_root/loading';
 import Pagination from '../_root/pagination';
 import styles from './style';
-export default function index() {
+export default function LocationsList() {
   const {
     locations,
     locationsLoading,
