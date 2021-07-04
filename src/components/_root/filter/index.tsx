@@ -12,6 +12,11 @@ interface NameFilterProps {
   setName: (value: string) => void;
 }
 
+interface DimensionFilterProps {
+  dimension: string;
+  setDimension: (value: string) => void;
+}
+
 interface TypeFilterProps {
   type: string;
   setType: (value: string) => void;
@@ -58,6 +63,19 @@ Filter.NameFilter = ({name, setName}: NameFilterProps) => {
         style={styles.textInput}
         value={name}
         onChangeText={setName}
+      />
+    </View>
+  );
+};
+
+Filter.DimensionFilter = ({dimension, setDimension}: DimensionFilterProps) => {
+  return (
+    <View style={styles.filterContainer}>
+      <TextInput
+        placeholder="Enter dimension"
+        style={styles.textInput}
+        value={dimension}
+        onChangeText={setDimension}
       />
     </View>
   );

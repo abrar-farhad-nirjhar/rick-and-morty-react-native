@@ -29,6 +29,11 @@ export function CharactersProvider({children}: Props) {
   const [gender, setGender] = useState<string>('');
   const [status, setStatus] = useState<string>('');
   const [species, setSpecies] = useState<string>('');
+
+  useEffect(() => {
+    setPage(1);
+  }, [name, type, gender, status, species]);
+
   const {
     data: charactersData,
     error: charactersError,
