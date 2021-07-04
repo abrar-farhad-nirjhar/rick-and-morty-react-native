@@ -1,11 +1,11 @@
 import React from 'react';
-import MainApp from './src/screens/app';
 import {ApolloProvider} from '@apollo/client';
 import client from './lib/apollo';
+import Navigation from './src/components/_root/navigation';
 export default function App() {
   return (
     <ApolloProvider client={client}>
-      <MainApp />
+      <Navigation />
     </ApolloProvider>
   );
 }
