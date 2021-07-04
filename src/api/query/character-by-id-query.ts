@@ -9,6 +9,15 @@ const CHARACTER = gql`
       species
       type
       gender
+      origin {
+        id
+        name
+      }
+      image
+      episode {
+        id
+        name
+      }
     }
   }
 `;
