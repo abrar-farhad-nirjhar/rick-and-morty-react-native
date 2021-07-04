@@ -17,7 +17,7 @@ export default function Navigation() {
       initialRouteName="Characters"
       screenOptions={{headerShown: false}}>
       <Stack.Screen name="Characters" component={Characters} />
-      <Stack.Screen name="Details" component={CharacterDetails} />
+      <Stack.Screen name="CharacterDetails" component={CharacterDetails} />
     </Stack.Navigator>
   );
 }

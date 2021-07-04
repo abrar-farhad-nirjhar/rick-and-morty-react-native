@@ -32,7 +32,7 @@ export default function ChacterCardList({navigation}: Props) {
     setSpecies,
   } = useContext(CharacterContext);
   const characterCards = characters?.map((character, index) => (
-    <TouchableOpacity onPress={() => navigation.navigate('Details')}>
+    <TouchableOpacity onPress={() => navigation.navigate('CharacterDetails')}>
       <CharacterCard character={character} key={index} />
     </TouchableOpacity>
   ));
