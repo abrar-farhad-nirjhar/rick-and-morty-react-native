@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {View, ScrollView} from 'react-native';
-import {LocationsContext} from '../../contexts/locations';
+import {EpisodesContext} from '../../contexts/episodes';
 import ListItem from '../list-item';
 import Filter from '../_root/filter';
 import Loading from '../_root/loading';
@@ -8,17 +8,15 @@ import Pagination from '../_root/pagination';
 import styles from './style';
 export default function index() {
   const {
-    locations,
-    locationsLoading,
+    episodes,
+    episodesLoading,
     name,
     setName,
-    type,
-    setType,
-    dimension,
-    setDimension,
+    episode,
+    setEpisode,
     info,
     setPage,
-  } = useContext(LocationsContext);
+  } = useContext(EpisodesContext);
 
   const nextAction = () => {
     //@ts-ignore
@@ -30,11 +28,11 @@ export default function index() {
     setPage(info?.prev);
   };
 
-  const locationsList = locations?.map((element: any, index) => {
+  const episodesList = episodes?.map((element: any, index) => {
     return (
       <ListItem
         key={index}
-        type={'location'}
+        type={'episode'}
         id={element.id}
         title={element.name}
       />
@@ -46,17 +44,13 @@ export default function index() {
       <Filter>
         <>
           <Filter.NameFilter name={name} setName={setName} />
-          <Filter.TypeFilter type={type} setType={setType} />
-          <Filter.DimensionFilter
-            dimension={dimension}
-            setDimension={setDimension}
-          />
+          <Filter.EpisodeFilter episode={episode} setEpisode={setEpisode} />
         </>
       </Filter>
-      {locationsLoading && <Loading />}
-      {!locationsLoading && (
+      {episodesLoading && <Loading />}
+      {!episodesLoading && (
         <ScrollView style={styles.container}>
-          {locationsList}
+          {episodesList}
           <Pagination
             info={info}
             nextAction={nextAction}

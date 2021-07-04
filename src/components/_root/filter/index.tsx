@@ -36,6 +36,11 @@ interface StatusFilterProps {
   setStatus: (value: string) => void;
 }
 
+interface EpisodeFilterProps {
+  episode: string;
+  setEpisode: (value: string) => void;
+}
+
 export default function Filter({children}: Props) {
   const [collapsed, setCollapsed] = useState<boolean>(false);
   const toggleCollapsed = () => {
@@ -128,6 +133,19 @@ Filter.StatusFilter = ({status, setStatus}: StatusFilterProps) => {
         setValue={setStatus}
         values={['dead', 'alive', 'unknown']}
         title="status"
+      />
+    </View>
+  );
+};
+
+Filter.EpisodeFilter = ({episode, setEpisode}: EpisodeFilterProps) => {
+  return (
+    <View style={styles.filterContainer}>
+      <TextInput
+        placeholder="Enter Episode"
+        style={styles.textInput}
+        value={episode}
+        onChangeText={setEpisode}
       />
     </View>
   );
