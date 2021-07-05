@@ -11,9 +11,9 @@ const Stack = createStackNavigator();
 export default function Navigation() {
   return (
     <Stack.Navigator
-      initialRouteName={ScreensEnum.Locations}
+      initialRouteName={ScreensEnum.LocationsList}
       screenOptions={{headerShown: false}}>
-      <Stack.Screen name={ScreensEnum.Locations} component={Locations} />
+      <Stack.Screen name={ScreensEnum.LocationsList} component={Locations} />
       <Stack.Screen
         name={ScreensEnum.LocationDetails}
         component={LocationDetails}

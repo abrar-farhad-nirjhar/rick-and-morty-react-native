@@ -11,9 +11,9 @@ const Stack = createStackNavigator();
 export default function Navigation() {
   return (
     <Stack.Navigator
-      initialRouteName={ScreensEnum.Episodes}
+      initialRouteName={ScreensEnum.EpisodesList}
       screenOptions={{headerShown: false}}>
-      <Stack.Screen name={ScreensEnum.Episodes} component={Episdoes} />
+      <Stack.Screen name={ScreensEnum.EpisodesList} component={Episdoes} />
       <Stack.Screen
         name={ScreensEnum.EpisodeDetails}
         component={EpisodeDetails}

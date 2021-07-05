@@ -6,4 +6,7 @@ export enum ScreensEnum {
   CharacterDetails = 'CharacterDetails',
   LocationDetails = 'LocationDetails',
   EpisodeDetails = 'EpisodeDetails',
+  EpisodesList = 'EpisodesList',
+  CharactersList = 'CharactersList',
+  LocationsList = 'LocationsList',
 }
