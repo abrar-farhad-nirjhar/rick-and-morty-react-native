@@ -21,9 +21,10 @@ export default function Select({title, values, value, setValue}: Props) {
             ALL
           </Text>
         </View>
-        {values.map(element => {
+        {values.map((element, index) => {
           return (
             <View
+              key={index}
               style={value === element ? styles.selected : styles.unSelected}>
               <Text
                 onPress={() => setValue(element)}
