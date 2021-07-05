@@ -63,7 +63,7 @@ export default function LocationsList({navigation}: Props) {
       </Filter>
       {locationsLoading && <Loading />}
       {!locationsLoading && (
-        <ScrollView style={styles.container}>
+        <ScrollView contentContainerStyle={styles.container}>
           {locationsList}
           <Pagination
             info={info}

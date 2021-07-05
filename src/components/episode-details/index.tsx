@@ -5,7 +5,7 @@ import ScreenContainer from '../screen-container';
 import Loading from '../_root/loading';
 import styles from './style';
 import ImageView from '../_root/image-view';
-
+import CharactersList from '../characters-list';
 interface Props {
   navigation: any;
 }
@@ -23,18 +23,10 @@ export default function LocationDetails({navigation}: Props) {
         <Text style={styles.properties}>Air Date : {episode.air_date}</Text>
         <Text style={styles.properties}>Residents :</Text>
         <ScrollView contentContainerStyle={styles.scroll}>
-          <View style={styles.scrollView}>
-            {episode.characters.map((character: any, index: any) => (
-              <TouchableOpacity
-                key={index}
-                style={{width: 110}}
-                onPress={() =>
-                  navigation.navigate('CharacterDetails', {id: character.id})
-                }>
-                <ImageView resident={character} />
-              </TouchableOpacity>
-            ))}
-          </View>
+          <CharactersList
+            navigation={navigation}
+            characters={episode.characters}
+          />
         </ScrollView>
       </View>
     </ScreenContainer>

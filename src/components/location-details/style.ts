@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   scroll: {
-    paddingBottom: 300,
+    paddingBottom: 350,
   },
 });
 

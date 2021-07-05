@@ -5,7 +5,7 @@ import ScreenContainer from '../screen-container';
 import Loading from '../_root/loading';
 import styles from './style';
 import ImageView from '../_root/image-view';
-
+import CharactersList from '../characters-list';
 interface Props {
   navigation: any;
 }
@@ -24,16 +24,10 @@ export default function LocationDetails({navigation}: Props) {
         <Text style={styles.properties}>Residents :</Text>
         <ScrollView contentContainerStyle={styles.scroll}>
           <View style={styles.scrollView}>
-            {location.residents.map((resident: any, index: any) => (
-              <TouchableOpacity
-                key={index}
-                style={{width: 110}}
-                onPress={() =>
-                  navigation.navigate('CharacterDetails', {id: resident.id})
-                }>
-                <ImageView resident={resident} />
-              </TouchableOpacity>
-            ))}
+            <CharactersList
+              navigation={navigation}
+              characters={location.residents}
+            />
           </View>
         </ScrollView>
       </View>

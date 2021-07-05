@@ -55,7 +55,7 @@ export default function EpisodesList({navigation}: Props) {
       </Filter>
       {episodesLoading && <Loading />}
       {!episodesLoading && (
-        <ScrollView style={styles.container}>
+        <ScrollView contentContainerStyle={styles.container}>
           {episodesList}
           <Pagination
             info={info}

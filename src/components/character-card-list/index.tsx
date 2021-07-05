@@ -1,14 +1,12 @@
 import React, {useContext} from 'react';
-import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
+import {ScrollView, View} from 'react-native';
 import {CharacterContext} from '../../contexts/character';
-import CharacterCard from '../character-card';
 import Pagination from '../_root/pagination';
 import styles from './styles';
 import Loading from '../_root/loading';
 import Filter from '../_root/filter';
-import StackNavigator from '../_root/stack-navigation';
-import CharacterDetails from '../../screens/character-details';
 import {createStackNavigator} from '@react-navigation/stack';
+import CharactersList from '../characters-list';
 
 const Stack = createStackNavigator();
 interface Props {
@@ -31,16 +29,6 @@ export default function ChacterCardList({navigation}: Props) {
     species,
     setSpecies,
   } = useContext(CharacterContext);
-  const characterCards = characters?.map((character: any, index) => (
-    <TouchableOpacity
-      onPress={() =>
-        navigation.navigate('CharacterDetails', {
-          id: character.id,
-        })
-      }>
-      <CharacterCard character={character} key={index} />
-    </TouchableOpacity>
-  ));
 
   const nextAction = () => {
     //@ts-ignore
@@ -65,9 +53,8 @@ export default function ChacterCardList({navigation}: Props) {
       </Filter>
       {charactersLoading && <Loading />}
       {!charactersLoading && (
-        <ScrollView style={styles.container}>
-          {characterCards}
-
+        <ScrollView contentContainerStyle={styles.scroll}>
+          <CharactersList characters={characters} navigation={navigation} />
           <Pagination
             info={info}
             nextAction={nextAction}

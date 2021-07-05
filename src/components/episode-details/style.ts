@@ -6,10 +6,6 @@ const styles = StyleSheet.create({
     fontWeight: '100',
     marginBottom: 10,
   },
-  scrollView: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
   scroll: {
     paddingBottom: 450,
   },
