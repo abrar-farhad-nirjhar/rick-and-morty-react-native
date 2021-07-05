@@ -2,10 +2,13 @@ import {useQuery} from '@apollo/client';
 import {isCompositeType} from 'graphql';
 import React, {createContext, useState, useEffect} from 'react';
 import CHARACTER from '../api/query/character-by-id-query';
-export const CharacterByIDContext = createContext({
-  characters: null,
-  characterLoading: false,
-});
+
+interface ICharacterByIDContext {
+  character: any;
+  characterLoading: boolean;
+}
+
+export const CharacterByIDContext = createContext({} as ICharacterByIDContext);
 
 interface Props {
   id: number;
@@ -32,7 +35,7 @@ export function CharacterByIDProvider({id, children}: Props) {
   return (
     <CharacterByIDContext.Provider
       value={{
-        characters: characterData?.character,
+        character: characterData?.character,
         characterLoading,
       }}>
       {children}

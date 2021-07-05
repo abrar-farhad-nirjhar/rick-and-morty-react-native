@@ -11,7 +11,7 @@ interface Props {
 export default function CharactersList({characters, navigation}: Props) {
   return (
     <View style={styles.scrollView}>
-      {characters.map((character: any, index: any) => (
+      {characters?.map((character: any, index: any) => (
         <TouchableOpacity
           key={index}
           style={{width: 110}}
