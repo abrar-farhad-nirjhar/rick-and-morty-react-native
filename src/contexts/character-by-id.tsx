@@ -24,12 +24,6 @@ export function CharacterByIDProvider({id, children}: Props) {
     variables: {
       id,
     },
-    onError(error) {
-      console.log(error.message);
-    },
-    onCompleted() {
-      console.log(characterData);
-    },
   });
 
   return (

@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     width: 200,
   },
   property: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '100',
     marginBottom: 10,
   },

@@ -4,16 +4,20 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import LocationDetails from '../../../screens/location-details';
 import Locations from '../../../screens/locations';
+import {ScreensEnum} from '../../../utils/enum';
 
 const Stack = createStackNavigator();
 
 export default function Navigation() {
   return (
     <Stack.Navigator
-      initialRouteName="Locations"
+      initialRouteName={ScreensEnum.Locations}
       screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Locations" component={Locations} />
-      <Stack.Screen name="LocationDetails" component={LocationDetails} />
+      <Stack.Screen name={ScreensEnum.Locations} component={Locations} />
+      <Stack.Screen
+        name={ScreensEnum.LocationDetails}
+        component={LocationDetails}
+      />
     </Stack.Navigator>
   );
 }

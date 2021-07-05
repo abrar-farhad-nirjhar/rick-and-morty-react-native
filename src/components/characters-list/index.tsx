@@ -24,7 +24,9 @@ export default function CharactersList({root, characters, navigation}: Props) {
                 params: {id: character.id},
               });
             } else {
-              navigation.navigate('CharacterDetails', {id: character.id});
+              navigation.navigate(ScreensEnum.CharacterDetails, {
+                id: character.id,
+              });
             }
           }}>
           <ImageView resident={character} />

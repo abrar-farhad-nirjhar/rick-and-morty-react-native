@@ -12,7 +12,7 @@ interface Props {
 
 export default function LocationDetails({navigation}: Props) {
   const {episode, episodeLoading} = useContext(EpisodeByIDContext);
-  console.log(episode, episodeLoading);
+
   if (episodeLoading) {
     return <Loading />;
   }
