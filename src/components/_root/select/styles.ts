@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
   boxText: {
     textAlign: 'center',
     fontWeight: '100',
+    color: 'black',
   },
 });
 
