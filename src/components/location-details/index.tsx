@@ -6,6 +6,7 @@ import Loading from '../_root/loading';
 import styles from './style';
 import ImageView from '../_root/image-view';
 import CharactersList from '../characters-list';
+import {ScreensEnum} from '../../utils/enum';
 interface Props {
   navigation: any;
 }
@@ -27,6 +28,7 @@ export default function LocationDetails({navigation}: Props) {
             <CharactersList
               navigation={navigation}
               characters={location?.residents}
+              root={ScreensEnum.Characters}
             />
           </View>
         </ScrollView>
