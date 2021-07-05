@@ -1,10 +1,9 @@
 import React, {useContext} from 'react';
-import {View, Text, TouchableOpacity, ScrollView} from 'react-native';
+import {View, Text, ScrollView} from 'react-native';
 import {EpisodeByIDContext} from '../../contexts/episode-by-id';
 import ScreenContainer from '../screen-container';
 import Loading from '../_root/loading';
 import styles from './style';
-import ImageView from '../_root/image-view';
 import CharactersList from '../characters-list';
 interface Props {
   navigation: any;

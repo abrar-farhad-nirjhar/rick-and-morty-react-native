@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {View, ScrollView, TouchableOpacity} from 'react-native';
 import {EpisodesContext} from '../../contexts/episodes';
+import List from '../list';
 import ListItem from '../list-item';
 import Filter from '../_root/filter';
 import Loading from '../_root/loading';
@@ -33,18 +34,6 @@ export default function EpisodesList({navigation}: Props) {
     setPage(info?.prev);
   };
 
-  const episodesList = episodes?.map((element: any, index) => {
-    return (
-      <TouchableOpacity
-        key={index}
-        onPress={() => {
-          navigation.navigate('EpisodeDetails', {id: element.id});
-        }}>
-        <ListItem type={'episode'} id={element.id} title={element.name} />
-      </TouchableOpacity>
-    );
-  });
-
   return (
     <View>
       <Filter>
@@ -56,7 +45,11 @@ export default function EpisodesList({navigation}: Props) {
       {episodesLoading && <Loading />}
       {!episodesLoading && (
         <ScrollView contentContainerStyle={styles.container}>
-          {episodesList}
+          <List
+            items={episodes}
+            navigation={navigation}
+            type={'EpisodeDetails'}
+          />
           <Pagination
             info={info}
             nextAction={nextAction}

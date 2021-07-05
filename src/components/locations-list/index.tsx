@@ -6,7 +6,7 @@ import Filter from '../_root/filter';
 import Loading from '../_root/loading';
 import Pagination from '../_root/pagination';
 import styles from './style';
-
+import List from '../list';
 interface Props {
   navigation: any;
 }
@@ -35,20 +35,6 @@ export default function LocationsList({navigation}: Props) {
     setPage(info?.prev);
   };
 
-  const locationsList = locations?.map((element: any, index) => {
-    return (
-      <TouchableOpacity
-        key={index}
-        onPress={() =>
-          navigation.navigate('LocationDetails', {
-            id: element.id,
-          })
-        }>
-        <ListItem type={'location'} id={element.id} title={element.name} />
-      </TouchableOpacity>
-    );
-  });
-
   return (
     <View>
       <Filter>
@@ -64,7 +50,11 @@ export default function LocationsList({navigation}: Props) {
       {locationsLoading && <Loading />}
       {!locationsLoading && (
         <ScrollView contentContainerStyle={styles.container}>
-          {locationsList}
+          <List
+            items={locations}
+            navigation={navigation}
+            type={'LocationDetails'}
+          />
           <Pagination
             info={info}
             nextAction={nextAction}
