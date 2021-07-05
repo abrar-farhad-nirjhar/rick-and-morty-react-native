@@ -5,6 +5,7 @@ import Loading from '../_root/loading';
 import {View, Image, Text, ScrollView} from 'react-native';
 import styles from './style';
 import List from '../list';
+import {ScreensEnum} from '../../utils/enum';
 interface Props {
   navigation: any;
 }
@@ -30,13 +31,15 @@ export default function CharacterDetails({navigation}: Props) {
         <Text style={styles.propertyBottom}>Origin :</Text>
         <List
           navigation={navigation}
-          type={'LocationDetails'}
+          type={ScreensEnum.LocationDetails}
+          root={ScreensEnum.Locations}
           items={[character.origin]}
         />
         <Text style={styles.propertyBottom}>Featured in Episodes :</Text>
         <List
           navigation={navigation}
-          type={'EpisodeDetails'}
+          type={ScreensEnum.EpisodeDetails}
+          root={ScreensEnum.Episodes}
           items={character.episode}
         />
       </ScrollView>

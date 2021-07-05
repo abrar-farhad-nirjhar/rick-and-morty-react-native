@@ -6,18 +6,26 @@ interface Props {
   items: any;
   type: string;
   navigation: any;
+  root?: string;
 }
 
-export default function List({items, type, navigation}: Props) {
+export default function List({root, items, type, navigation}: Props) {
   const list = items?.map((element: any, index: any) => {
     return (
       <TouchableOpacity
         key={index}
-        onPress={() =>
-          navigation.navigate(type, {
-            id: element.id,
-          })
-        }>
+        onPress={() => {
+          if (root) {
+            navigation.navigate(root, {
+              screen: type,
+              params: {
+                id: element.id,
+              },
+            });
+          } else {
+            navigation.navigate(type, {id: element.id});
+          }
+        }}>
         <ListItem title={element.name} />
       </TouchableOpacity>
     );

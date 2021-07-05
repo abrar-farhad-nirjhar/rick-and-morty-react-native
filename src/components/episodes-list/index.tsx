@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {View, ScrollView, TouchableOpacity} from 'react-native';
 import {EpisodesContext} from '../../contexts/episodes';
+import {ScreensEnum} from '../../utils/enum';
 import List from '../list';
 import ListItem from '../list-item';
 import Filter from '../_root/filter';
@@ -48,7 +49,7 @@ export default function EpisodesList({navigation}: Props) {
           <List
             items={episodes}
             navigation={navigation}
-            type={'EpisodeDetails'}
+            type={ScreensEnum.EpisodeDetails}
           />
           <Pagination
             info={info}

@@ -7,6 +7,7 @@ import Loading from '../_root/loading';
 import Pagination from '../_root/pagination';
 import styles from './style';
 import List from '../list';
+import {ScreensEnum} from '../../utils/enum';
 interface Props {
   navigation: any;
 }
@@ -53,7 +54,7 @@ export default function LocationsList({navigation}: Props) {
           <List
             items={locations}
             navigation={navigation}
-            type={'LocationDetails'}
+            type={ScreensEnum.LocationDetails}
           />
           <Pagination
             info={info}
