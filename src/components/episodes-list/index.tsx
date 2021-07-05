@@ -1,12 +1,17 @@
 import React, {useContext} from 'react';
-import {View, ScrollView} from 'react-native';
+import {View, ScrollView, TouchableOpacity} from 'react-native';
 import {EpisodesContext} from '../../contexts/episodes';
 import ListItem from '../list-item';
 import Filter from '../_root/filter';
 import Loading from '../_root/loading';
 import Pagination from '../_root/pagination';
 import styles from './style';
-export default function EpisodesList() {
+
+interface Props {
+  navigation: any;
+}
+
+export default function EpisodesList({navigation}: Props) {
   const {
     episodes,
     episodesLoading,
@@ -30,12 +35,13 @@ export default function EpisodesList() {
 
   const episodesList = episodes?.map((element: any, index) => {
     return (
-      <ListItem
+      <TouchableOpacity
         key={index}
-        type={'episode'}
-        id={element.id}
-        title={element.name}
-      />
+        onPress={() => {
+          navigation.navigate('EpisodeDetails', {id: element.id});
+        }}>
+        <ListItem type={'episode'} id={element.id} title={element.name} />
+      </TouchableOpacity>
     );
   });
 
