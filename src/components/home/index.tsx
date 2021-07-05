@@ -29,7 +29,6 @@ export default function Home({navigation}: Props) {
       <CharactersList
         root={ScreensEnum.Characters}
         characters={[rickData, mortyData]}
-        navigation={navigation}
       />
       <Text style={styles.text}>Or</Text>
       <Text style={styles.text}>Swipe right and lets get started!!!</Text>

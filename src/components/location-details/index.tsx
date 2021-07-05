@@ -7,13 +7,11 @@ import styles from './style';
 import ImageView from '../_root/image-view';
 import CharactersList from '../characters-list';
 import {ScreensEnum} from '../../utils/enum';
-interface Props {
-  navigation: any;
-}
+import {useNavigation} from '@react-navigation/core';
 
-export default function LocationDetails({navigation}: Props) {
+export default function LocationDetails() {
   const {location, locationLoading} = useContext(LocationByIDContext);
-
+  const navigation = useNavigation();
   if (locationLoading) {
     return <Loading />;
   }
@@ -26,7 +24,6 @@ export default function LocationDetails({navigation}: Props) {
         <ScrollView contentContainerStyle={styles.scroll}>
           <View style={styles.scrollView}>
             <CharactersList
-              navigation={navigation}
               characters={location?.residents}
               root={ScreensEnum.Characters}
             />

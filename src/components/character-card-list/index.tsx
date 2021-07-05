@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {ScrollView, View} from 'react-native';
 import {CharacterContext} from '../../contexts/character';
 import Pagination from '../_root/pagination';
@@ -7,12 +7,12 @@ import Loading from '../_root/loading';
 import Filter from '../_root/filter';
 import {createStackNavigator} from '@react-navigation/stack';
 import CharactersList from '../characters-list';
+import {useNavigation, useRoute} from '@react-navigation/core';
+import {ScreensEnum} from '../../utils/enum';
 
 const Stack = createStackNavigator();
-interface Props {
-  navigation: any;
-}
-export default function ChacterCardList({navigation}: Props) {
+
+export default function ChacterCardList() {
   const {
     characters,
     info,
@@ -29,6 +29,15 @@ export default function ChacterCardList({navigation}: Props) {
     species,
     setSpecies,
   } = useContext(CharacterContext);
+
+  const route: any = useRoute();
+  const navigation: any = useNavigation();
+
+  useEffect(() => {
+    if (route?.params?.id) {
+      navigation.navigate(ScreensEnum.CharacterDetails, {id: route.params.id});
+    }
+  }, [route]);
 
   const nextAction = () => {
     //@ts-ignore
@@ -54,7 +63,7 @@ export default function ChacterCardList({navigation}: Props) {
       {charactersLoading && <Loading />}
       {!charactersLoading && (
         <ScrollView contentContainerStyle={styles.scroll}>
-          <CharactersList characters={characters} navigation={navigation} />
+          <CharactersList characters={characters} />
           <Pagination
             info={info}
             nextAction={nextAction}

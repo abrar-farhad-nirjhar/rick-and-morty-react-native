@@ -1,5 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
+import {ScreensEnum} from '../../utils/enum';
 import ListItem from '../list-item';
 
 interface Props {
@@ -17,7 +18,10 @@ export default function List({root, items, type, navigation}: Props) {
         onPress={() => {
           if (root) {
             navigation.navigate(root, {
-              screen: type,
+              screen:
+                type === ScreensEnum.EpisodeDetails
+                  ? ScreensEnum.EpisodesList
+                  : ScreensEnum.LocationsList,
               params: {
                 id: element.id,
               },

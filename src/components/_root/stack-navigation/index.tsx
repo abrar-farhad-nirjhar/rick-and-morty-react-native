@@ -11,7 +11,7 @@ export default function Navigation() {
     <Stack.Navigator
       initialRouteName={ScreensEnum.Characters}
       screenOptions={{headerShown: false}}>
-      <Stack.Screen name={ScreensEnum.Characters} component={Characters} />
+      <Stack.Screen name={ScreensEnum.CharactersList} component={Characters} />
       <Stack.Screen
         name={ScreensEnum.CharacterDetails}
         component={CharacterDetails}

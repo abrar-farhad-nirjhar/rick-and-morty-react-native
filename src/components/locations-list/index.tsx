@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {View, ScrollView, TouchableOpacity} from 'react-native';
 import {LocationsContext} from '../../contexts/locations';
 import ListItem from '../list-item';
@@ -8,11 +8,9 @@ import Pagination from '../_root/pagination';
 import styles from './style';
 import List from '../list';
 import {ScreensEnum} from '../../utils/enum';
-interface Props {
-  navigation: any;
-}
+import {useNavigation, useRoute} from '@react-navigation/core';
 
-export default function LocationsList({navigation}: Props) {
+export default function LocationsList() {
   const {
     locations,
     locationsLoading,
@@ -25,6 +23,14 @@ export default function LocationsList({navigation}: Props) {
     info,
     setPage,
   } = useContext(LocationsContext);
+
+  const route: any = useRoute();
+  const navigation: any = useNavigation();
+  useEffect(() => {
+    if (route?.params?.id) {
+      navigation.navigate(ScreensEnum.LocationDetails, {id: route.params.id});
+    }
+  }, [route]);
 
   const nextAction = () => {
     //@ts-ignore

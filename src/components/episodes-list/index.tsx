@@ -1,4 +1,5 @@
-import React, {useContext} from 'react';
+import {useNavigation, useRoute} from '@react-navigation/native';
+import React, {useContext, useEffect} from 'react';
 import {View, ScrollView, TouchableOpacity} from 'react-native';
 import {EpisodesContext} from '../../contexts/episodes';
 import {ScreensEnum} from '../../utils/enum';
@@ -9,11 +10,7 @@ import Loading from '../_root/loading';
 import Pagination from '../_root/pagination';
 import styles from './style';
 
-interface Props {
-  navigation: any;
-}
-
-export default function EpisodesList({navigation}: Props) {
+export default function EpisodesList() {
   const {
     episodes,
     episodesLoading,
@@ -24,6 +21,13 @@ export default function EpisodesList({navigation}: Props) {
     info,
     setPage,
   } = useContext(EpisodesContext);
+  const route: any = useRoute();
+  const navigation: any = useNavigation();
+  useEffect(() => {
+    if (route?.params?.id) {
+      navigation.navigate(ScreensEnum.EpisodeDetails, {id: route.params.id});
+    }
+  }, [route]);
 
   const nextAction = () => {
     //@ts-ignore

@@ -6,13 +6,11 @@ import {View, Image, Text, ScrollView} from 'react-native';
 import styles from './style';
 import List from '../list';
 import {ScreensEnum} from '../../utils/enum';
-interface Props {
-  navigation: any;
-}
+import {useNavigation} from '@react-navigation/core';
 
-export default function CharacterDetails({navigation}: Props) {
+export default function CharacterDetails() {
   const {character, characterLoading} = useContext(CharacterByIDContext);
-
+  const navigation = useNavigation();
   if (characterLoading) return <Loading />;
 
   return (
