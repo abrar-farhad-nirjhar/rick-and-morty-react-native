@@ -1,12 +1,17 @@
 import React, {useContext} from 'react';
-import {View, ScrollView} from 'react-native';
+import {View, ScrollView, TouchableOpacity} from 'react-native';
 import {LocationsContext} from '../../contexts/locations';
 import ListItem from '../list-item';
 import Filter from '../_root/filter';
 import Loading from '../_root/loading';
 import Pagination from '../_root/pagination';
 import styles from './style';
-export default function LocationsList() {
+
+interface Props {
+  navigation: any;
+}
+
+export default function LocationsList({navigation}: Props) {
   const {
     locations,
     locationsLoading,
@@ -32,12 +37,15 @@ export default function LocationsList() {
 
   const locationsList = locations?.map((element: any, index) => {
     return (
-      <ListItem
+      <TouchableOpacity
         key={index}
-        type={'location'}
-        id={element.id}
-        title={element.name}
-      />
+        onPress={() =>
+          navigation.navigate('LocationDetails', {
+            id: element.id,
+          })
+        }>
+        <ListItem type={'location'} id={element.id} title={element.name} />
+      </TouchableOpacity>
     );
   });
 
