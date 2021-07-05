@@ -38,9 +38,9 @@ export function HomeProvider({children}: Props) {
   return (
     <HomeContext.Provider
       value={{
-        rickData: rickData.character,
+        rickData: rickData?.character,
         rickLoading,
-        mortyData: mortyData.character,
+        mortyData: mortyData?.character,
         mortyLoading,
       }}>
       {children}
