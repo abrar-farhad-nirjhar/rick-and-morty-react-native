@@ -12,11 +12,14 @@ const CHARACTER = gql`
       origin {
         id
         name
+        type
       }
       image
       episode {
         id
         name
+        air_date
+        episode
       }
     }
   }

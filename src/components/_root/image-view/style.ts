@@ -9,10 +9,12 @@ const styles = StyleSheet.create({
   image: {
     height: 100,
     width: 100,
+    borderRadius: 100,
   },
   text: {
     textAlign: 'center',
     paddingTop: 5,
+    fontWeight: '100',
   },
 });
 

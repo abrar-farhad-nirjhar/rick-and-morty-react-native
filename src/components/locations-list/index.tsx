@@ -24,14 +24,6 @@ export default function LocationsList() {
     setPage,
   } = useContext(LocationsContext);
 
-  const route: any = useRoute();
-  const navigation: any = useNavigation();
-  useEffect(() => {
-    if (route?.params?.id) {
-      navigation.navigate(ScreensEnum.LocationDetails, {id: route.params.id});
-    }
-  }, [route]);
-
   const nextAction = () => {
     //@ts-ignore
     setPage(info?.next);
@@ -57,11 +49,7 @@ export default function LocationsList() {
       {locationsLoading && <Loading />}
       {!locationsLoading && (
         <ScrollView contentContainerStyle={styles.container}>
-          <List
-            items={locations}
-            navigation={navigation}
-            type={ScreensEnum.LocationDetails}
-          />
+          <List items={locations} type={ScreensEnum.LocationDetails} />
           <Pagination
             info={info}
             nextAction={nextAction}

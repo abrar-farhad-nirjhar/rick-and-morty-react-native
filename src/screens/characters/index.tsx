@@ -6,9 +6,7 @@ import CharacterCardList from '../../components/character-card-list';
 export default function Characters() {
   return (
     <CharactersProvider>
-      <ScreenContainer header={'Characters'}>
-        <CharacterCardList />
-      </ScreenContainer>
+      <CharacterCardList />
     </CharactersProvider>
   );
 }

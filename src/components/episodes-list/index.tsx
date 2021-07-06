@@ -1,10 +1,9 @@
 import {useNavigation, useRoute} from '@react-navigation/native';
 import React, {useContext, useEffect} from 'react';
-import {View, ScrollView, TouchableOpacity} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import {EpisodesContext} from '../../contexts/episodes';
 import {ScreensEnum} from '../../utils/enum';
 import List from '../list';
-import ListItem from '../list-item';
 import Filter from '../_root/filter';
 import Loading from '../_root/loading';
 import Pagination from '../_root/pagination';
@@ -21,13 +20,6 @@ export default function EpisodesList() {
     info,
     setPage,
   } = useContext(EpisodesContext);
-  const route: any = useRoute();
-  const navigation: any = useNavigation();
-  useEffect(() => {
-    if (route?.params?.id) {
-      navigation.navigate(ScreensEnum.EpisodeDetails, {id: route.params.id});
-    }
-  }, [route]);
 
   const nextAction = () => {
     //@ts-ignore
@@ -50,11 +42,7 @@ export default function EpisodesList() {
       {episodesLoading && <Loading />}
       {!episodesLoading && (
         <ScrollView contentContainerStyle={styles.container}>
-          <List
-            items={episodes}
-            navigation={navigation}
-            type={ScreensEnum.EpisodeDetails}
-          />
+          <List items={episodes} type={ScreensEnum.EpisodeDetails} />
           <Pagination
             info={info}
             nextAction={nextAction}

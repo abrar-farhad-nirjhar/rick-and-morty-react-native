@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
   image: {
     height: 200,
     width: 200,
+    borderRadius: 200,
   },
   property: {
     fontSize: 18,
@@ -13,11 +14,9 @@ const styles = StyleSheet.create({
   topBanner: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
   },
-  bannerRight: {
-    width: 200,
-    marginLeft: 8,
-  },
+
   scroll: {
     paddingBottom: 350,
   },

@@ -4,6 +4,8 @@ const variables = {
   imageHeight: 250,
   scrollViewHeight: 650,
   buttonColor: 'black',
+  green: '#97CE4C',
+  white: '#ffffff',
 };
 
 export default variables;

@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import variables from '../../../utils/variables';
 
 const styles = StyleSheet.create({
   select: {
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     padding: 5,
     backgroundColor: 'black',
-    color: 'white',
+    color: variables.green,
     marginRight: 10,
     borderRadius: 20,
     paddingRight: 10,
@@ -36,7 +37,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   boxTextSelected: {
-    color: 'white',
+    color: variables.white,
     textAlign: 'center',
     fontWeight: '600',
   },

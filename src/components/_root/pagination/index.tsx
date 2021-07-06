@@ -13,7 +13,7 @@ export default function Pagination({info, prevAction, nextAction}: Props) {
     <View style={styles.container}>
       {info && (
         <Button
-          color={variables.buttonColor}
+          color="black"
           disabled={!info.next}
           onPress={nextAction}
           title="Next"
@@ -21,7 +21,7 @@ export default function Pagination({info, prevAction, nextAction}: Props) {
       )}
       {info && (
         <Button
-          color={variables.buttonColor}
+          color="black"
           disabled={!info.prev}
           onPress={prevAction}
           title="Prev"

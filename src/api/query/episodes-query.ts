@@ -12,6 +12,8 @@ const EPISODES = gql`
       results {
         id
         name
+        air_date
+        episode
       }
     }
   }

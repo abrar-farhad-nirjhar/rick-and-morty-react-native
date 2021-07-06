@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/core';
 import React, {useContext} from 'react';
 import {View, Text, Image} from 'react-native';
 import {HomeContext} from '../../contexts/home';
@@ -6,14 +7,10 @@ import CharactersList from '../characters-list';
 import Loading from '../_root/loading';
 import styles from './styles';
 
-interface Props {
-  navigation: any;
-}
-
-export default function Home({navigation}: Props) {
+export default function Home() {
   const {rickLoading, mortyLoading, rickData, mortyData} =
     useContext(HomeContext);
-
+  const navigation = useNavigation();
   if (rickLoading || mortyLoading) return <Loading />;
 
   return (

@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
 import {ScreensEnum} from '../../utils/enum';
@@ -6,11 +7,12 @@ import ListItem from '../list-item';
 interface Props {
   items: any;
   type: string;
-  navigation: any;
+
   root?: string;
 }
 
-export default function List({root, items, type, navigation}: Props) {
+export default function List({root, items, type}: Props) {
+  const navigation = useNavigation();
   const list = items?.map((element: any, index: any) => {
     return (
       <TouchableOpacity
@@ -18,10 +20,7 @@ export default function List({root, items, type, navigation}: Props) {
         onPress={() => {
           if (root) {
             navigation.navigate(root, {
-              screen:
-                type === ScreensEnum.EpisodeDetails
-                  ? ScreensEnum.EpisodesList
-                  : ScreensEnum.LocationsList,
+              screen: type,
               params: {
                 id: element.id,
               },
@@ -30,7 +29,12 @@ export default function List({root, items, type, navigation}: Props) {
             navigation.navigate(type, {id: element.id});
           }
         }}>
-        <ListItem title={element.name} />
+        <ListItem
+          title={element.name}
+          subTitle={
+            type === ScreensEnum.EpisodeDetails ? element.episode : element.type
+          }
+        />
       </TouchableOpacity>
     );
   });

@@ -12,6 +12,7 @@ const Locations = gql`
       results {
         id
         name
+        type
       }
     }
   }

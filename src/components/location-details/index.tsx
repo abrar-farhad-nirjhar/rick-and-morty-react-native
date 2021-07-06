@@ -8,6 +8,7 @@ import ImageView from '../_root/image-view';
 import CharactersList from '../characters-list';
 import {ScreensEnum} from '../../utils/enum';
 import {useNavigation} from '@react-navigation/core';
+import DetailsCard from '../_root/details-card';
 
 export default function LocationDetails() {
   const {location, locationLoading} = useContext(LocationByIDContext);
@@ -16,10 +17,19 @@ export default function LocationDetails() {
     return <Loading />;
   }
   return (
-    <ScreenContainer header={location?.name}>
+    <ScreenContainer
+      header={location?.name}
+      returnScreen={ScreensEnum.LocationsList}>
       <View>
-        <Text style={styles.properties}>Type : {location?.type}</Text>
-        <Text style={styles.properties}>Dimension : {location?.dimension}</Text>
+        <DetailsCard>
+          <>
+            <DetailsCard.Element property={'Type'} value={location?.type} />
+            <DetailsCard.Element
+              property={'Dimension'}
+              value={location?.dimension}
+            />
+          </>
+        </DetailsCard>
         <Text style={styles.properties}>Residents :</Text>
         <ScrollView contentContainerStyle={styles.scroll}>
           <View style={styles.scrollView}>

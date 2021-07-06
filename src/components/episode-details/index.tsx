@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import {EpisodeByIDContext} from '../../contexts/episode-by-id';
 import ScreenContainer from '../screen-container';
@@ -6,6 +6,7 @@ import Loading from '../_root/loading';
 import styles from './style';
 import CharactersList from '../characters-list';
 import {ScreensEnum} from '../../utils/enum';
+import DetailsCard from '../_root/details-card';
 
 export default function EpisodeDetails() {
   const {episode, episodeLoading} = useContext(EpisodeByIDContext);
@@ -14,11 +15,21 @@ export default function EpisodeDetails() {
     return <Loading />;
   }
   return (
-    <ScreenContainer header={episode.name}>
+    <ScreenContainer
+      header={episode.name}
+      returnScreen={ScreensEnum.EpisodesList}>
       <View>
-        <Text style={styles.properties}>Episode : {episode.episode}</Text>
-        <Text style={styles.properties}>Air Date : {episode.air_date}</Text>
-        <Text style={styles.properties}>Residents :</Text>
+        <DetailsCard>
+          <>
+            <DetailsCard.Element property={'Episode'} value={episode.episode} />
+            <DetailsCard.Element
+              property={'Air Date'}
+              value={episode.air_date}
+            />
+          </>
+        </DetailsCard>
+
+        <Text style={styles.properties}>Characters Featured :</Text>
         <ScrollView contentContainerStyle={styles.scroll}>
           <CharactersList
             characters={episode.characters}

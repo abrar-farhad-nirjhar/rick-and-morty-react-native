@@ -12,7 +12,11 @@ export default function Navigation() {
   return (
     <Stack.Navigator
       initialRouteName={ScreensEnum.LocationsList}
-      screenOptions={{headerShown: false}}>
+      screenOptions={{
+        headerShown: false,
+        animationEnabled: false,
+        gestureEnabled: false,
+      }}>
       <Stack.Screen name={ScreensEnum.LocationsList} component={Locations} />
       <Stack.Screen
         name={ScreensEnum.LocationDetails}

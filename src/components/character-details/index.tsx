@@ -7,35 +7,39 @@ import styles from './style';
 import List from '../list';
 import {ScreensEnum} from '../../utils/enum';
 import {useNavigation} from '@react-navigation/core';
-
+import DetailsCard from '../_root/details-card';
 export default function CharacterDetails() {
   const {character, characterLoading} = useContext(CharacterByIDContext);
   const navigation = useNavigation();
   if (characterLoading) return <Loading />;
 
   return (
-    <ScreenContainer header={character.name}>
+    <ScreenContainer
+      header={character.name}
+      returnScreen={ScreensEnum.CharactersList}>
       <ScrollView contentContainerStyle={styles.scroll}>
         <View style={styles.topBanner}>
           <Image style={styles.image} source={{uri: character.image}} />
-
-          <View style={styles.bannerRight}>
-            <Text style={styles.property}>Gender : {character.gender}</Text>
-            <Text style={styles.property}>Species : {character.species}</Text>
-            <Text style={styles.property}>Status : {character.status}</Text>
-            <Text style={styles.property}>Type : {character.status}</Text>
-          </View>
         </View>
+        <DetailsCard>
+          <>
+            <DetailsCard.Element property={'Gender'} value={character.gender} />
+            <DetailsCard.Element
+              property={'Species'}
+              value={character.species}
+            />
+            <DetailsCard.Element property={'Status'} value={character.status} />
+            <DetailsCard.Element property={'Type'} value={character.type} />
+          </>
+        </DetailsCard>
         <Text style={styles.propertyBottom}>Origin :</Text>
         <List
-          navigation={navigation}
           type={ScreensEnum.LocationDetails}
           root={ScreensEnum.Locations}
           items={[character.origin]}
         />
         <Text style={styles.propertyBottom}>Featured in Episodes :</Text>
         <List
-          navigation={navigation}
           type={ScreensEnum.EpisodeDetails}
           root={ScreensEnum.Episodes}
           items={character.episode}

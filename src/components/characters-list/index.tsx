@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View, TouchableOpacity} from 'react-native';
 import {ScreensEnum} from '../../utils/enum';
 import ImageView from '../_root/image-view';
 import styles from './style';
-import {StackActions, useNavigation, useRoute} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 interface Props {
   characters: any;
@@ -22,7 +22,7 @@ export default function CharactersList({root, characters}: Props) {
           onPress={() => {
             if (root) {
               navigation.navigate(root, {
-                screen: ScreensEnum.CharactersList,
+                screen: ScreensEnum.CharacterDetails,
                 params: {
                   id: character.id,
                 },

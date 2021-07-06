@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
     fontWeight: '100',
     marginBottom: 20,
   },
+  backButtonContainer: {
+    alignItems: 'flex-start',
+  },
 });
 
 export default styles;

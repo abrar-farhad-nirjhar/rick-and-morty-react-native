@@ -2,14 +2,12 @@ import React from 'react';
 import ScreenContainer from '../../components/screen-container';
 import EpisodesList from '../../components/episodes-list';
 import {EpisodesProvider} from '../../contexts/episodes';
-interface Props {
-  navigation: any;
-}
-export default function Episodes({navigation}: Props) {
+
+export default function Episodes() {
   return (
     <EpisodesProvider>
       <ScreenContainer header={'Episodes'}>
-        <EpisodesList navigation={navigation} />
+        <EpisodesList />
       </ScreenContainer>
     </EpisodesProvider>
   );
