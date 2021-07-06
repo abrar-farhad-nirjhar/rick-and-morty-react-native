@@ -8,6 +8,8 @@ import List from '../list';
 import {ScreensEnum} from '../../utils/enum';
 import {useNavigation} from '@react-navigation/core';
 import DetailsCard from '../_root/details-card';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 export default function CharacterDetails() {
   const {character, characterLoading} = useContext(CharacterByIDContext);
   const navigation = useNavigation();
@@ -32,13 +34,19 @@ export default function CharacterDetails() {
             <DetailsCard.Element property={'Type'} value={character.type} />
           </>
         </DetailsCard>
-        <Text style={styles.propertyBottom}>Origin</Text>
+        <View style={styles.details}>
+          <Icon name={'location-arrow'} size={20} style={styles.iconMargin} />
+          <Text style={styles.locProperties}>Origin</Text>
+        </View>
         <List
           type={ScreensEnum.LocationDetails}
           root={ScreensEnum.Locations}
           items={[character.origin]}
         />
-        <Text style={styles.propertyBottom}>Featured in Episodes</Text>
+        <View style={styles.details}>
+          <Icon name={'tv'} size={20} style={styles.iconMargin} />
+          <Text style={styles.locProperties}>Featured in Episodes</Text>
+        </View>
         <List
           type={ScreensEnum.EpisodeDetails}
           root={ScreensEnum.Episodes}

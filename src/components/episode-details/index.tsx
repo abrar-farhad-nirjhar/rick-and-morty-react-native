@@ -7,6 +7,7 @@ import styles from './style';
 import CharactersList from '../characters-list';
 import {ScreensEnum} from '../../utils/enum';
 import DetailsCard from '../_root/details-card';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function EpisodeDetails() {
   const {episode, episodeLoading} = useContext(EpisodeByIDContext);
@@ -28,8 +29,10 @@ export default function EpisodeDetails() {
             />
           </>
         </DetailsCard>
-
-        <Text style={styles.properties}>Characters Featured</Text>
+        <View style={styles.details}>
+          <Icon name={'group'} size={20} style={styles.iconMargin} />
+          <Text style={styles.locProperties}>Featured Characters</Text>
+        </View>
         <ScrollView contentContainerStyle={styles.scroll}>
           <CharactersList
             characters={episode.characters}

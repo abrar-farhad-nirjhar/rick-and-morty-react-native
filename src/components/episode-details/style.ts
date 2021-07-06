@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   properties: {
@@ -10,6 +10,18 @@ const styles = StyleSheet.create({
   scroll: {
     paddingBottom: 450,
   },
+  details: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+    justifyContent: 'center'
+  },
+  locProperties: {
+    fontSize: 20,
+  },
+  iconMargin: {
+    marginRight: 10
+  }
 });
 
 export default styles;

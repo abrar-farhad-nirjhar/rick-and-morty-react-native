@@ -2,6 +2,7 @@ import {useNavigation} from '@react-navigation/core';
 import React from 'react';
 import {View, Text, Button} from 'react-native';
 import styles from './styles';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 interface Props {
   header: String;
@@ -19,13 +20,16 @@ export default function ScreenContainer({
     <View style={styles.container}>
       {returnScreen && (
         <View style={styles.backButtonContainer}>
-          <Button
+          <Icon
+            name="arrow-left"
+            size={30}
             onPress={() => navigation.navigate(returnScreen)}
-            title={'Back to List'}
+            style={styles.iconMargin}
           />
+          <Text style={styles.text}>{header}</Text>
         </View>
       )}
-      <Text style={styles.text}>{header}</Text>
+
       {children}
     </View>
   );

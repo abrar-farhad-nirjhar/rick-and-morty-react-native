@@ -9,6 +9,7 @@ import CharactersList from '../characters-list';
 import {ScreensEnum} from '../../utils/enum';
 import {useNavigation} from '@react-navigation/core';
 import DetailsCard from '../_root/details-card';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function LocationDetails() {
   const {location, locationLoading} = useContext(LocationByIDContext);
@@ -30,7 +31,10 @@ export default function LocationDetails() {
             />
           </>
         </DetailsCard>
-        <Text style={styles.properties}>Residents :</Text>
+        <View style={styles.details}>
+          <Icon name={'group'} size={20} style={styles.iconMargin} />
+          <Text style={styles.locProperties}>Residents</Text>
+        </View>
         <ScrollView contentContainerStyle={styles.scroll}>
           <View style={styles.scrollView}>
             <CharactersList
