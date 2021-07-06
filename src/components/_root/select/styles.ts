@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import variables from '../../../utils/variables';
 
 const styles = StyleSheet.create({
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   selected: {
-    borderColor: 'gainsboro',
+    borderColor: 'black',
     borderWidth: 0.5,
     padding: 5,
     backgroundColor: 'black',
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   unSelected: {
-    borderColor: 'gainsboro',
+    borderColor: 'black',
     borderWidth: 0.5,
     padding: 5,
     marginRight: 10,

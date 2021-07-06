@@ -3,6 +3,11 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     padding: 20,
+
+  },
+  noBackText: {
+    fontSize: 40,
+    marginBottom: 20
   },
   text: {
     fontSize: 40,

@@ -5,6 +5,8 @@ const styles = StyleSheet.create({
     height: 200,
     width: 200,
     borderRadius: 200,
+    borderWidth: 1,
+    borderColor: 'black'
   },
   property: {
     fontSize: 18,

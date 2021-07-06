@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,6 +22,18 @@ const styles = StyleSheet.create({
     width: 350,
     height: 350,
   },
+  swipe: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  textSwipe: {
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: '100',
+  },
+  iconMargin: {
+    marginLeft: 10
+  }
 });
 
 export default styles;

@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     borderWidth: 1,
-    borderColor: 'gainsboro',
+    borderColor: 'black',
     padding: 10,
     marginTop: 10,
     marginBottom: 10,

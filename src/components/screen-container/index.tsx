@@ -1,6 +1,6 @@
 import {useNavigation} from '@react-navigation/core';
 import React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Text} from 'react-native';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -29,6 +29,7 @@ export default function ScreenContainer({
           <Text style={styles.text}>{header}</Text>
         </View>
       )}
+      {!returnScreen && <Text style={styles.noBackText}>{header}</Text>}
 
       {children}
     </View>

@@ -6,6 +6,7 @@ import {ScreensEnum} from '../../utils/enum';
 import CharactersList from '../characters-list';
 import Loading from '../_root/loading';
 import styles from './styles';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export default function Home() {
   const {rickLoading, mortyLoading, rickData, mortyData} =
@@ -28,7 +29,10 @@ export default function Home() {
         characters={[rickData, mortyData]}
       />
       <Text style={styles.text}>Or</Text>
-      <Text style={styles.text}>Swipe right and lets get started!!!</Text>
+      <View style={styles.swipe}>
+        <Text style={styles.textSwipe}>Swipe right</Text>
+        <Icon name="arrow-right" size={20} style={styles.iconMargin} />
+      </View>
     </View>
   );
 }

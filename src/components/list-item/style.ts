@@ -1,10 +1,10 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderColor: 'gainsboro',
+    borderColor: 'black',
     borderWidth: 1,
     padding: 10,
     marginBottom: 10,

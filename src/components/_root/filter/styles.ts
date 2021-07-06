@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   textInput: {
     backgroundColor: 'white',
     borderWidth: 1,
-    borderColor: 'gainsboro',
+    borderColor: 'black',
     fontSize: 20,
     borderRadius: 10,
     padding: 5,

@@ -1,6 +1,6 @@
 const variables = {
   borderWidth: 0.5,
-  borderColor: 'gainsboro',
+  borderColor: 'black',
   imageHeight: 250,
   scrollViewHeight: 650,
   buttonColor: 'black',
