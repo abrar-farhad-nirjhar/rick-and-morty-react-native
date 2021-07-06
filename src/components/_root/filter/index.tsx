@@ -65,6 +65,7 @@ Filter.NameFilter = ({name, setName}: NameFilterProps) => {
     <View style={styles.filterContainer}>
       <TextInput
         placeholder="Enter name"
+        placeholderTextColor="gainsboro"
         style={styles.textInput}
         value={name}
         onChangeText={setName}
@@ -78,6 +79,7 @@ Filter.DimensionFilter = ({dimension, setDimension}: DimensionFilterProps) => {
     <View style={styles.filterContainer}>
       <TextInput
         placeholder="Enter dimension"
+        placeholderTextColor="gainsboro"
         style={styles.textInput}
         value={dimension}
         onChangeText={setDimension}
@@ -91,6 +93,7 @@ Filter.SpeciesFilter = ({species, setSpecies}: SpeciesFilterProps) => {
     <View style={styles.filterContainer}>
       <TextInput
         placeholder="Enter species"
+        placeholderTextColor="gainsboro"
         style={styles.textInput}
         value={species}
         onChangeText={setSpecies}
@@ -104,6 +107,7 @@ Filter.TypeFilter = ({type, setType}: TypeFilterProps) => {
     <View style={styles.filterContainer}>
       <TextInput
         placeholder="Enter Type"
+        placeholderTextColor="gainsboro"
         style={styles.textInput}
         value={type}
         onChangeText={setType}
@@ -143,6 +147,7 @@ Filter.EpisodeFilter = ({episode, setEpisode}: EpisodeFilterProps) => {
     <View style={styles.filterContainer}>
       <TextInput
         placeholder="Enter Episode"
+        placeholderTextColor="gainsboro"
         style={styles.textInput}
         value={episode}
         onChangeText={setEpisode}

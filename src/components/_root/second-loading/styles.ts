@@ -12,13 +12,13 @@ const styles = StyleSheet.create({
   img: {
     width: 300,
     height: 300,
-    top: -200,
+    top: -100,
   },
   text: {
-    fontSize: 15,
+    fontSize: 20,
     color: 'black',
     position: 'absolute',
-    top: 250,
+    top: 100,
   },
 });
 

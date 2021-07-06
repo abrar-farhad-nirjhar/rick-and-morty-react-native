@@ -3,7 +3,7 @@ import {ScrollView, View} from 'react-native';
 import {CharacterContext} from '../../contexts/character';
 import Pagination from '../_root/pagination';
 import styles from './styles';
-import Loading from '../_root/loading';
+import Loading from '../_root/second-loading';
 import Filter from '../_root/filter';
 import {createStackNavigator} from '@react-navigation/stack';
 import CharactersList from '../characters-list';

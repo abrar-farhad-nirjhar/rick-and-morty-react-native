@@ -5,7 +5,7 @@ import {EpisodesContext} from '../../contexts/episodes';
 import {ScreensEnum} from '../../utils/enum';
 import List from '../list';
 import Filter from '../_root/filter';
-import Loading from '../_root/loading';
+import Loading from '../_root/second-loading';
 import Pagination from '../_root/pagination';
 import styles from './style';
 
