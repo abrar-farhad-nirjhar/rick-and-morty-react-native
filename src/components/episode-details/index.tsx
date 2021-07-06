@@ -29,7 +29,7 @@ export default function EpisodeDetails() {
           </>
         </DetailsCard>
 
-        <Text style={styles.properties}>Characters Featured :</Text>
+        <Text style={styles.properties}>Characters Featured</Text>
         <ScrollView contentContainerStyle={styles.scroll}>
           <CharactersList
             characters={episode.characters}

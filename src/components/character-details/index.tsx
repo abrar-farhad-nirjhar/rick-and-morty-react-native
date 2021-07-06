@@ -32,13 +32,13 @@ export default function CharacterDetails() {
             <DetailsCard.Element property={'Type'} value={character.type} />
           </>
         </DetailsCard>
-        <Text style={styles.propertyBottom}>Origin :</Text>
+        <Text style={styles.propertyBottom}>Origin</Text>
         <List
           type={ScreensEnum.LocationDetails}
           root={ScreensEnum.Locations}
           items={[character.origin]}
         />
-        <Text style={styles.propertyBottom}>Featured in Episodes :</Text>
+        <Text style={styles.propertyBottom}>Featured in Episodes</Text>
         <List
           type={ScreensEnum.EpisodeDetails}
           root={ScreensEnum.Episodes}

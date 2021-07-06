@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.headerText}>Welcome!!</Text>
+      <Text style={styles.headerText}>Welcome</Text>
       <Image
         style={styles.img}
         source={require('../../../assets/home-screen-image.png')}

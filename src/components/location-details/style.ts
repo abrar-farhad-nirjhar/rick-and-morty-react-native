@@ -5,13 +5,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '100',
     marginBottom: 10,
+    textAlign: 'center',
   },
   scrollView: {
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
   scroll: {
-    paddingBottom: 350,
+    paddingBottom: 600,
   },
 });
 
