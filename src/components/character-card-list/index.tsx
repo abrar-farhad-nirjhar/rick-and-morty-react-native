@@ -9,7 +9,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 import CharactersList from '../characters-list';
 import {useNavigation, useRoute} from '@react-navigation/core';
 import {ScreensEnum} from '../../utils/enum';
-import ScreenContainer from '../screen-container';
 
 const Stack = createStackNavigator();
 
@@ -43,31 +42,28 @@ export default function ChacterCardList() {
     setPage(info?.prev);
   };
 
-  if (charactersLoading) return <Loading />;
   return (
-    <ScreenContainer header={'Characters'}>
-      <View>
-        <Filter>
-          <>
-            <Filter.NameFilter name={name} setName={setName} />
-            <Filter.TypeFilter type={type} setType={setType} />
-            <Filter.SpeciesFilter species={species} setSpecies={setSpecies} />
-            <Filter.GenderFilter gender={gender} setGender={setGender} />
-            <Filter.StatusFilter status={status} setStatus={setStatus} />
-          </>
-        </Filter>
-
-        {!charactersLoading && (
-          <ScrollView contentContainerStyle={styles.scroll}>
-            <CharactersList characters={characters} />
-            <Pagination
-              info={info}
-              nextAction={nextAction}
-              prevAction={prevAction}
-            />
-          </ScrollView>
-        )}
-      </View>
-    </ScreenContainer>
+    <View>
+      <Filter>
+        <>
+          <Filter.NameFilter name={name} setName={setName} />
+          <Filter.TypeFilter type={type} setType={setType} />
+          <Filter.SpeciesFilter species={species} setSpecies={setSpecies} />
+          <Filter.GenderFilter gender={gender} setGender={setGender} />
+          <Filter.StatusFilter status={status} setStatus={setStatus} />
+        </>
+      </Filter>
+      {charactersLoading && <Loading />}
+      {!charactersLoading && (
+        <ScrollView contentContainerStyle={styles.scroll}>
+          <CharactersList characters={characters} />
+          <Pagination
+            info={info}
+            nextAction={nextAction}
+            prevAction={prevAction}
+          />
+        </ScrollView>
+      )}
+    </View>
   );
 }
