@@ -1,7 +1,5 @@
 import React from 'react';
-
 import {createStackNavigator} from '@react-navigation/stack';
-
 import LocationDetails from '../../../screens/location-details';
 import Locations from '../../../screens/locations';
 import {ScreensEnum} from '../../../utils/enum';

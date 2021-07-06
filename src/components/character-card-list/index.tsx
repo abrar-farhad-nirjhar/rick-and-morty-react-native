@@ -7,8 +7,7 @@ import Loading from '../_root/second-loading';
 import Filter from '../_root/filter';
 import {createStackNavigator} from '@react-navigation/stack';
 import CharactersList from '../characters-list';
-import {useNavigation, useRoute} from '@react-navigation/core';
-import {ScreensEnum} from '../../utils/enum';
+import {useNavigation} from '@react-navigation/core';
 
 const Stack = createStackNavigator();
 

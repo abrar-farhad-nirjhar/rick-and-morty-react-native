@@ -13,18 +13,6 @@ const styles = StyleSheet.create({
   },
   scroll: {
     paddingBottom: 600,
-  },
-  details: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-    justifyContent: 'center'
-  },
-  locProperties: {
-    fontSize: 20,
-  },
-  iconMargin: {
-    marginRight: 10
   }
 });
 

@@ -2,14 +2,13 @@ import React, {useContext} from 'react';
 import {CharacterByIDContext} from '../../contexts/character-by-id';
 import ScreenContainer from '../screen-container';
 import Loading from '../_root/loading';
-import {View, Image, Text, ScrollView} from 'react-native';
+import {View, Image, ScrollView} from 'react-native';
 import styles from './style';
 import List from '../list';
 import {ScreensEnum} from '../../utils/enum';
 import {useNavigation} from '@react-navigation/core';
 import DetailsCard from '../_root/details-card';
-import Icon from 'react-native-vector-icons/FontAwesome';
-
+import IconHeader from '../_root/icon-header';
 export default function CharacterDetails() {
   const {character, characterLoading} = useContext(CharacterByIDContext);
   const navigation = useNavigation();
@@ -34,19 +33,14 @@ export default function CharacterDetails() {
             <DetailsCard.Element property={'Type'} value={character.type} />
           </>
         </DetailsCard>
-        <View style={styles.details}>
-          <Icon name={'location-arrow'} size={20} style={styles.iconMargin} />
-          <Text style={styles.locProperties}>Origin</Text>
-        </View>
+
+        <IconHeader icon={'location-arrow'} text={'Origin'} />
         <List
           type={ScreensEnum.LocationDetails}
           root={ScreensEnum.Locations}
           items={[character.origin]}
         />
-        <View style={styles.details}>
-          <Icon name={'tv'} size={20} style={styles.iconMargin} />
-          <Text style={styles.locProperties}>Featured in Episodes</Text>
-        </View>
+        <IconHeader icon={'tv'} text={'Featured in Episodes'} />
         <List
           type={ScreensEnum.EpisodeDetails}
           root={ScreensEnum.Episodes}

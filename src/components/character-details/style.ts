@@ -29,18 +29,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     textAlign: 'center',
   },
-  details: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-    justifyContent: 'center'
-  },
-  locProperties: {
-    fontSize: 20,
-  },
-  iconMargin: {
-    marginRight: 10
-  }
+
 });
 
 export default styles;

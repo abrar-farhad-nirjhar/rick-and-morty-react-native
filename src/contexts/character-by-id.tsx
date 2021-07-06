@@ -1,6 +1,5 @@
 import {useQuery} from '@apollo/client';
-import {isCompositeType} from 'graphql';
-import React, {createContext, useState, useEffect} from 'react';
+import React, {createContext} from 'react';
 import CHARACTER from '../api/query/character-by-id-query';
 
 interface ICharacterByIDContext {

@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, Button} from 'react-native';
 import styles from './styles';
-import variables from '../../../utils/variables';
 interface Props {
   info: any;
   prevAction: () => void;

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Text, View, TouchableOpacity, TextInput} from 'react-native';
 import Select from '../select';
 import styles from './styles';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 interface Props {
   children: JSX.Element;
 }
@@ -51,8 +51,8 @@ export default function Filter({children}: Props) {
       <View style={styles.header}>
         <Text style={styles.text}>Filter</Text>
         <TouchableOpacity onPress={toggleCollapsed} style={styles.button}>
-          {!collapsed && <Text style={styles.actionText}>+</Text>}
-          {collapsed && <Text style={styles.actionText}>-</Text>}
+          {!collapsed && <Icon name="plus-circle" size={20} />}
+          {collapsed && <Icon name="minus-circle" size={20} />}
         </TouchableOpacity>
       </View>
       {collapsed && children}
