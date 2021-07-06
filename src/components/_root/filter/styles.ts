@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     borderRadius: 10,
     padding: 5,
+    color: 'black'
   },
   filterContainer: {
     marginTop: 10,
