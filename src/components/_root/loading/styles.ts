@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     top: -200,
   },
   text: {
-    fontSize: 15,
+    fontSize: 25,
     color: 'black',
     position: 'absolute',
     top: 250,
