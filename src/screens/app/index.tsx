@@ -1,13 +1,10 @@
-import {useQuery} from '@apollo/client';
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text} from 'react-native';
-import {CHARACTERS} from '../../api/query/characters-query';
+import Characters from '../characters';
 export default function MainApp() {
-  const {data, loading, error} = useQuery(CHARACTERS);
-  console.log(data);
   return (
-    <View>
-      <Text>Hello world</Text>
+    <View style={{justifyContent: 'center', alignItems: 'center', flex: 1}}>
+      <Text>Home</Text>
     </View>
   );
 }
